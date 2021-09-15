@@ -17,6 +17,7 @@ namespace JDLogSort
 
         string[] con1 = new string[] { "3GM AT ACK:", "", "OK", "", ";" };
 
+
         public Form1()
         {
             InitializeComponent();
@@ -48,6 +49,7 @@ namespace JDLogSort
                 bool gsm = false;
                 bool niu = false;
                 bool psd = false;
+                string[] splitsourcepath = logfilepath.Split('\\');
                 for (int i = 0; i < loginlines.Length; i++) {
 
                     //  Loop Check
@@ -96,16 +98,34 @@ namespace JDLogSort
                     }
 
                 }
+                //  display on output boxes
                 if (gsm && niu && psd)
                 {
                     found += 1;
                     foundcountlabel.Text = found.ToString();
                     outputlistbox.Items.Add(lockid);
+                    if (savepathtb.Text != "") {
+                        string path = Path.Combine(savepathtb.Text, "\\" + splitsourcepath[splitsourcepath.Length - 3] + "\\SUCESSFUL");
+                        FileInfo fileInfo = new FileInfo(savepathtb.Text);
+                        fileInfo.IsReadOnly = false;
+                        DirectoryInfo di = Directory.CreateDirectory(path);
+                        File.Copy(logfilepath, path+"\\"+splitsourcepath[splitsourcepath.Length-1],true);
+                        Console.WriteLine("Passed");
+                    }
                 }
                 else {
                     notfound += 1;
                     notfoundcountlabel.Text = notfound.ToString();
                     outputlistbox2.Items.Add(lockid);
+                    if (savepathtb.Text != "")
+                    {
+                        string path = Path.Combine(savepathtb.Text, "\\" + splitsourcepath[splitsourcepath.Length - 3] + "\\UNSUCESSFUL");
+                        FileInfo fileInfo = new FileInfo(savepathtb.Text);
+                        fileInfo.IsReadOnly = false;
+                        DirectoryInfo di = Directory.CreateDirectory(path);
+                        File.Copy(logfilepath, path + "\\" + splitsourcepath[splitsourcepath.Length-1],true);
+                        Console.WriteLine("Failed");
+                    }
                 }
             }
         }
@@ -158,6 +178,7 @@ namespace JDLogSort
         private void clearbtn_Click(object sender, EventArgs e)
         {
             directorytb.Text = "";
+            subdirlistbox.Items.Clear();
             previewlistbox.Items.Clear();
             txtfilecountlabel.Text = "0";
         }
@@ -175,6 +196,11 @@ namespace JDLogSort
         {
             outputlistbox.Items.Clear();
             outputlistbox2.Items.Clear();
+        }
+
+        private void savepathclearbtn_Click(object sender, EventArgs e)
+        {
+            savepathtb.Text = "";
         }
     }
 }

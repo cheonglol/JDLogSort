@@ -246,6 +246,7 @@ namespace JDLogSort
             this.savepathclearbtn.TabIndex = 11;
             this.savepathclearbtn.Text = "Clear";
             this.savepathclearbtn.UseVisualStyleBackColor = true;
+            this.savepathclearbtn.Click += new System.EventHandler(this.savepathclearbtn_Click);
             // 
             // savepathbrowsebtn
             // 
