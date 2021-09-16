@@ -98,33 +98,31 @@ namespace JDLogSort
                     }
 
                 }
+                // Date Folder
+                string datefilepath = Path.Combine(savepathtb.Text, splitsourcepath[splitsourcepath.Length - 3]);
+                Directory.CreateDirectory(datefilepath);
+
                 //  display on output boxes
                 if (gsm && niu && psd)
                 {
+                    string succpathfile = Path.Combine(datefilepath, "SUCCESSFUL");
+                    Directory.CreateDirectory(succpathfile);
                     found += 1;
                     foundcountlabel.Text = found.ToString();
-                    outputlistbox.Items.Add(lockid);
+                    outputlistbox.Items.Add(splitsourcepath[splitsourcepath.Length - 3] + " - " + lockid);
                     if (savepathtb.Text != "") {
-                        string path = Path.Combine(savepathtb.Text, "\\" + splitsourcepath[splitsourcepath.Length - 3] + "\\SUCESSFUL");
-                        FileInfo fileInfo = new FileInfo(savepathtb.Text);
-                        fileInfo.IsReadOnly = false;
-                        DirectoryInfo di = Directory.CreateDirectory(path);
-                        File.Copy(logfilepath, path+"\\"+splitsourcepath[splitsourcepath.Length-1],true);
-                        Console.WriteLine("Passed");
+                        File.Copy(logfilepath, succpathfile + @"\" + splitsourcepath[splitsourcepath.Length - 1], true);
                     }
                 }
                 else {
+                    string unsuccpathfile = Path.Combine(datefilepath, "UNSUCCESSFUL");
+                    Directory.CreateDirectory(unsuccpathfile);
                     notfound += 1;
                     notfoundcountlabel.Text = notfound.ToString();
-                    outputlistbox2.Items.Add(lockid);
+                    outputlistbox2.Items.Add(splitsourcepath[splitsourcepath.Length - 3] + " - " + lockid);
                     if (savepathtb.Text != "")
                     {
-                        string path = Path.Combine(savepathtb.Text, "\\" + splitsourcepath[splitsourcepath.Length - 3] + "\\UNSUCESSFUL");
-                        FileInfo fileInfo = new FileInfo(savepathtb.Text);
-                        fileInfo.IsReadOnly = false;
-                        DirectoryInfo di = Directory.CreateDirectory(path);
-                        File.Copy(logfilepath, path + "\\" + splitsourcepath[splitsourcepath.Length-1],true);
-                        Console.WriteLine("Failed");
+                        File.Copy(logfilepath, unsuccpathfile + @"\" + splitsourcepath[splitsourcepath.Length - 1], true );
                     }
                 }
             }
