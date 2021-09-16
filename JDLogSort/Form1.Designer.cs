@@ -33,6 +33,10 @@ namespace JDLogSort
             this.directorytb = new System.Windows.Forms.TextBox();
             this.clearbtn = new System.Windows.Forms.Button();
             this.TargetFolderGroupBox = new System.Windows.Forms.GroupBox();
+            this.subdircountlabel = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.subdirlistbox = new System.Windows.Forms.ListBox();
+            this.txtfilecountlabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.previewlistbox = new System.Windows.Forms.ListBox();
             this.sortbtn = new System.Windows.Forms.Button();
@@ -50,11 +54,8 @@ namespace JDLogSort
             this.savepathclearbtn = new System.Windows.Forms.Button();
             this.savepathbrowsebtn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtfilecountlabel = new System.Windows.Forms.Label();
             this.outputclearbtn = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.subdirlistbox = new System.Windows.Forms.ListBox();
-            this.subdircountlabel = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.TargetFolderGroupBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -91,6 +92,7 @@ namespace JDLogSort
             // TargetFolderGroupBox
             // 
             this.TargetFolderGroupBox.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.TargetFolderGroupBox.Controls.Add(this.label6);
             this.TargetFolderGroupBox.Controls.Add(this.subdircountlabel);
             this.TargetFolderGroupBox.Controls.Add(this.label5);
             this.TargetFolderGroupBox.Controls.Add(this.subdirlistbox);
@@ -105,17 +107,59 @@ namespace JDLogSort
             this.TargetFolderGroupBox.Location = new System.Drawing.Point(5, 24);
             this.TargetFolderGroupBox.Margin = new System.Windows.Forms.Padding(15, 15, 15, 0);
             this.TargetFolderGroupBox.Name = "TargetFolderGroupBox";
-            this.TargetFolderGroupBox.Size = new System.Drawing.Size(776, 572);
+            this.TargetFolderGroupBox.Size = new System.Drawing.Size(776, 587);
             this.TargetFolderGroupBox.TabIndex = 3;
             this.TargetFolderGroupBox.TabStop = false;
             this.TargetFolderGroupBox.Text = "Target Folder";
             this.TargetFolderGroupBox.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // subdircountlabel
+            // 
+            this.subdircountlabel.AutoSize = true;
+            this.subdircountlabel.Location = new System.Drawing.Point(731, 97);
+            this.subdircountlabel.Name = "subdircountlabel";
+            this.subdircountlabel.Size = new System.Drawing.Size(14, 15);
+            this.subdircountlabel.TabIndex = 12;
+            this.subdircountlabel.Text = "0";
+            this.subdircountlabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(19, 95);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(219, 18);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Sub Directories of Target Folder";
+            // 
+            // subdirlistbox
+            // 
+            this.subdirlistbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.subdirlistbox.FormattingEnabled = true;
+            this.subdirlistbox.HorizontalScrollbar = true;
+            this.subdirlistbox.ItemHeight = 20;
+            this.subdirlistbox.Location = new System.Drawing.Point(21, 117);
+            this.subdirlistbox.Name = "subdirlistbox";
+            this.subdirlistbox.ScrollAlwaysVisible = true;
+            this.subdirlistbox.Size = new System.Drawing.Size(725, 184);
+            this.subdirlistbox.TabIndex = 10;
+            // 
+            // txtfilecountlabel
+            // 
+            this.txtfilecountlabel.AutoSize = true;
+            this.txtfilecountlabel.Location = new System.Drawing.Point(731, 324);
+            this.txtfilecountlabel.Name = "txtfilecountlabel";
+            this.txtfilecountlabel.Size = new System.Drawing.Size(14, 15);
+            this.txtfilecountlabel.TabIndex = 9;
+            this.txtfilecountlabel.Text = "0";
+            this.txtfilecountlabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(17, 308);
+            this.label1.Location = new System.Drawing.Point(17, 322);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(259, 18);
             this.label1.TabIndex = 8;
@@ -127,7 +171,7 @@ namespace JDLogSort
             this.previewlistbox.FormattingEnabled = true;
             this.previewlistbox.HorizontalScrollbar = true;
             this.previewlistbox.ItemHeight = 20;
-            this.previewlistbox.Location = new System.Drawing.Point(20, 331);
+            this.previewlistbox.Location = new System.Drawing.Point(20, 345);
             this.previewlistbox.Name = "previewlistbox";
             this.previewlistbox.ScrollAlwaysVisible = true;
             this.previewlistbox.Size = new System.Drawing.Size(725, 224);
@@ -222,7 +266,7 @@ namespace JDLogSort
             this.groupBox1.Controls.Add(this.savepathclearbtn);
             this.groupBox1.Controls.Add(this.savepathbrowsebtn);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(5, 614);
+            this.groupBox1.Location = new System.Drawing.Point(5, 629);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(775, 73);
             this.groupBox1.TabIndex = 15;
@@ -269,16 +313,6 @@ namespace JDLogSort
             this.label4.Text = "Locks are sorted conditionally by\r\n- 3GM AT ACK: OK;\r\n- Now Is UNLOCK\r\n- pSendDat" +
     "a= ";
             // 
-            // txtfilecountlabel
-            // 
-            this.txtfilecountlabel.AutoSize = true;
-            this.txtfilecountlabel.Location = new System.Drawing.Point(731, 310);
-            this.txtfilecountlabel.Name = "txtfilecountlabel";
-            this.txtfilecountlabel.Size = new System.Drawing.Size(14, 15);
-            this.txtfilecountlabel.TabIndex = 9;
-            this.txtfilecountlabel.Text = "0";
-            this.txtfilecountlabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
             // outputclearbtn
             // 
             this.outputclearbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -290,37 +324,15 @@ namespace JDLogSort
             this.outputclearbtn.UseVisualStyleBackColor = true;
             this.outputclearbtn.Click += new System.EventHandler(this.outputclearbtn_Click);
             // 
-            // label5
+            // label6
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(19, 81);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(219, 18);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Sub Directories of Target Folder";
-            // 
-            // subdirlistbox
-            // 
-            this.subdirlistbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subdirlistbox.FormattingEnabled = true;
-            this.subdirlistbox.HorizontalScrollbar = true;
-            this.subdirlistbox.ItemHeight = 20;
-            this.subdirlistbox.Location = new System.Drawing.Point(21, 103);
-            this.subdirlistbox.Name = "subdirlistbox";
-            this.subdirlistbox.ScrollAlwaysVisible = true;
-            this.subdirlistbox.Size = new System.Drawing.Size(725, 184);
-            this.subdirlistbox.TabIndex = 10;
-            // 
-            // subdircountlabel
-            // 
-            this.subdircountlabel.AutoSize = true;
-            this.subdircountlabel.Location = new System.Drawing.Point(731, 83);
-            this.subdircountlabel.Name = "subdircountlabel";
-            this.subdircountlabel.Size = new System.Drawing.Size(14, 15);
-            this.subdircountlabel.TabIndex = 12;
-            this.subdircountlabel.Text = "0";
-            this.subdircountlabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(19, 55);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(499, 15);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Target folder should contain date files and in each date files are \'sucessful\' or" +
+    " \'unsucessful\'";
             // 
             // Form1
             // 
@@ -381,6 +393,7 @@ namespace JDLogSort
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListBox subdirlistbox;
         private System.Windows.Forms.Label subdircountlabel;
+        private System.Windows.Forms.Label label6;
     }
 }
 
